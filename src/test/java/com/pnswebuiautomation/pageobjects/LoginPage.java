@@ -110,7 +110,7 @@ public class LoginPage extends BasePage {
 
     /**
      * Enters specified text into the email field
-     * @param text
+     * @param text email of the user
      */
     public void enterTextToEmailField(String text) {
         webActionsUtil.enterTextToField(txt_Email, text);
@@ -118,7 +118,7 @@ public class LoginPage extends BasePage {
 
     /**
      * Enters specified text into the password field
-     * @param password
+     * @param password password of the user
      */
     public void enterTextToPassword(String password) {
         webActionsUtil.enterTextToField(txt_Password, password);
@@ -133,6 +133,7 @@ public class LoginPage extends BasePage {
 
     /**
      * Checks if the error message is displayed when user credentials is invalid upon login
+     * @param expectedErrorMessage Expected error message displayed
      * @return true if error message is displayed; false otherwise
      */
     public boolean verifyIsLoginErrorMessageIsDisplayed(String expectedErrorMessage) {

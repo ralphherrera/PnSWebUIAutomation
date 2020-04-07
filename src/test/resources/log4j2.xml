@@ -31,9 +31,9 @@
     </Appenders>
 
     <Loggers>
-        <Root level="NOTICE" additivity="false">
-            <AppenderRef ref="console" level="NOTICE"/>
-            <AppenderRef ref="rollingFile" level="VERBOSE"/>
+        <Root level="NOTICE" additivity="true">
+            <AppenderRef ref="console" level="VERBOSE"/>
+            <AppenderRef ref="rollingFile" level="DIAG"/>
         </Root>
     </Loggers>
 </Configuration>
