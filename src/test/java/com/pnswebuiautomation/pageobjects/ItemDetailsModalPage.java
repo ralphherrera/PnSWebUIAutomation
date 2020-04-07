@@ -7,9 +7,9 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class ItemDetailsPage extends BasePage {
+public class ItemDetailsModalPage extends BasePage {
 
-    private static final Logger log = LogManager.getLogger(ItemDetailsPage.class);
+    private static final Logger log = LogManager.getLogger(ItemDetailsModalPage.class);
 
     // Page Elements
     @FindBy(css = "iframe[class='fancybox-iframe']")

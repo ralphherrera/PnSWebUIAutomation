@@ -1,7 +1,7 @@
 package com.pnswebuiautomation.stepdefinitions;
 
 import com.pnswebuiautomation.pageobjects.HomePage;
-import com.pnswebuiautomation.pageobjects.ItemDetailsPage;
+import com.pnswebuiautomation.pageobjects.ItemDetailsModalPage;
 import com.pnswebuiautomation.pageobjects.SearchResultsPage;
 import com.pnswebuiautomation.utilities.FileMgmtUtil;
 import io.cucumber.java8.En;
@@ -9,7 +9,7 @@ import io.cucumber.java8.En;
 public class SampleSearchItemStepDefinition implements En {
 
     public SampleSearchItemStepDefinition(ScenarioHooks hooks, HomePage homePage, SearchResultsPage searchResultsPage,
-                                          ItemDetailsPage itemDetailsPage) {
+                                          ItemDetailsModalPage itemDetailsModalPage) {
 
         Given("^I access my favorite shopping website$", () -> {
             homePage.setDriver(hooks.getWebWebsUtil(), hooks.getWebActionsUtil());
@@ -31,10 +31,10 @@ public class SampleSearchItemStepDefinition implements En {
         });
 
         Then("^I should see the item details and item description '(.*)'$", (String itemDescription) -> {
-            itemDetailsPage.setDriver(hooks.getWebWebsUtil(), hooks.getWebActionsUtil());
+            itemDetailsModalPage.setDriver(hooks.getWebWebsUtil(), hooks.getWebActionsUtil());
 
-            itemDetailsPage.switchToItemDetailsModalIframe();
-            itemDetailsPage.verifyItemDescriptionDisplayedIsCorrect(itemDescription);
+            itemDetailsModalPage.switchToItemDetailsModalIframe();
+            itemDetailsModalPage.verifyItemDescriptionDisplayedIsCorrect(itemDescription);
         });
     }
 }
