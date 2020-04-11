@@ -1,9 +1,18 @@
 package com.pnswebuiautomation.runner;
 
 
+import com.pnswebuiautomation.stepdefinitions.ScenarioHooks;
+import com.pnswebuiautomation.utilities.CommonUtility;
+import com.pnswebuiautomation.utilities.FileMgmtUtility;
+import io.cucumber.java.Scenario;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
+
+import java.time.LocalDateTime;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -22,5 +31,23 @@ import org.junit.runner.RunWith;
 
 public class ScenarioRunnerTest {
 
+        private static final Logger log = LogManager.getLogger(ScenarioRunnerTest.class);
+        private static final String CSV_FILE_EXT = ".csv";
+        private static final String PROJECT_DIR_PATH = System.getProperty("user.dir");
 
+        @AfterClass
+        public static void afterTest() {
+                StringBuilder fileNameToPath = new StringBuilder();
+                fileNameToPath.append(PROJECT_DIR_PATH);
+                fileNameToPath.append("/");
+                fileNameToPath.append("Results");
+                fileNameToPath.append("/");
+                fileNameToPath.append(ScenarioHooks.scenario.getName().replaceAll(" ", "_"));
+                fileNameToPath.append("-");
+                fileNameToPath.append(CommonUtility.covertLocalDateTimeToString(LocalDateTime.now()).replaceAll("/", "_"));
+                fileNameToPath.append(CSV_FILE_EXT);
+
+                FileMgmtUtility.writeTestStepDurationToCSV(fileNameToPath.toString(), ScenarioHooks.stepDurationList);
+
+        }
 }

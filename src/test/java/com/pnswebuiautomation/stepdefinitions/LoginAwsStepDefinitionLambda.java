@@ -1,7 +1,7 @@
 package com.pnswebuiautomation.stepdefinitions;
 
 import com.pnswebuiautomation.pageobjects.LoginPage;
-import com.pnswebuiautomation.utilities.FileMgmtUtil;
+import com.pnswebuiautomation.utilities.FileMgmtUtility;
 import io.cucumber.java8.En;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,7 +19,7 @@ public class LoginAwsStepDefinitionLambda implements En {
             loginPage.setDriver(hooks.getWebWebsUtil(), hooks.getWebActionsUtil());
 
             log.info(hooks.getScenario().getId());
-            loginPage.openPage(FileMgmtUtil.getPropertyValue("website.url"));
+            loginPage.openPage(FileMgmtUtility.getPropertyValue("website.url"));
         });
 
         And("^I click on Other Sites Radio button$", () -> loginPage.clickOtherSitesRadioButton());

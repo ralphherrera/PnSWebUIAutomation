@@ -7,7 +7,7 @@ Feature: Item Search
   So that I can view my favorite item
 
   @quickViewItemDetails
-  Scenario Outline: Item Details via quick view
+  Scenario Outline: View item details via quick view
     Given I access my favorite shopping website
     And I enter '<Item>' in the search text field
     And I click on search button

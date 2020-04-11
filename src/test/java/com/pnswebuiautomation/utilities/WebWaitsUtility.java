@@ -16,8 +16,8 @@ public class WebWaitsUtility {
 
     private static final Logger log = LogManager.getLogger(WebWaitsUtility.class);
     private static final int ZERO_TIMEOUT = 0;
-    private final static Duration WAIT_FOR_PAGELOAD_TIMEOUT = Duration.ofSeconds(FileMgmtUtil.getNumberValue("default.wait.for.page"));
-    private final static Duration EXPLICIT_WAIT_TIMEOUT = Duration.ofSeconds(FileMgmtUtil.getNumberValue(CommonConstants.EXPLICIT_TIMEOUT));
+    private final static Duration WAIT_FOR_PAGELOAD_TIMEOUT = Duration.ofSeconds(FileMgmtUtility.getNumberValue("default.wait.for.page"));
+    private final static Duration EXPLICIT_WAIT_TIMEOUT = Duration.ofSeconds(FileMgmtUtility.getNumberValue(CommonConstants.EXPLICIT_TIMEOUT));
 
     private WebDriver driver;
 
@@ -71,7 +71,6 @@ public class WebWaitsUtility {
             WebDriverWait driverWait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
             target = driverWait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
 
-
             if (target.isDisplayed()) {
                 isElementDisplayed = true;
             }
@@ -82,7 +81,7 @@ public class WebWaitsUtility {
             log.error("Something went wrong finding element [{}]", e.getMessage());
             Assert.fail("Element is not present");
         } finally {
-            driver.manage().timeouts().implicitlyWait(FileMgmtUtil.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(FileMgmtUtility.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
         }
         return log.traceExit(isElementDisplayed);
     }
@@ -112,7 +111,7 @@ public class WebWaitsUtility {
             log.error("Something went wrong finding element [{}]", e.getMessage());
             Assert.fail("Element is not present");
         } finally {
-            driver.manage().timeouts().implicitlyWait(FileMgmtUtil.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(FileMgmtUtility.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
         }
         return log.traceExit(isElementDisplayed);
     }
@@ -137,7 +136,7 @@ public class WebWaitsUtility {
         } catch (Exception e) {
             log.error("Something went wrong finding element [{}]", e.getMessage());
         } finally {
-            driver.manage().timeouts().implicitlyWait(FileMgmtUtil.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(FileMgmtUtility.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
         }
         return log.traceExit(isElementNotDisplayed);
     }
@@ -181,7 +180,7 @@ public class WebWaitsUtility {
         } catch (Exception e) {
             log.error("Something went wrong finding element [{}]", e.getMessage());
         } finally {
-            driver.manage().timeouts().implicitlyWait(FileMgmtUtil.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(FileMgmtUtility.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
         }
         return log.traceExit(areElementsDisplayed);
     }
@@ -210,7 +209,7 @@ public class WebWaitsUtility {
         } catch (Exception e) {
             log.error("Something went wrong [{}]", e.getMessage());
         } finally {
-            driver.manage().timeouts().implicitlyWait(FileMgmtUtil.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(FileMgmtUtility.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
         }
         return log.traceExit(didAttributeChanged);
     }
@@ -229,7 +228,7 @@ public class WebWaitsUtility {
         } catch (Exception e) {
             log.error("Something went wrong [{}]", e.toString());
         } finally {
-            driver.manage().timeouts().implicitlyWait(FileMgmtUtil.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(FileMgmtUtility.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
         }
         log.traceExit();
     }

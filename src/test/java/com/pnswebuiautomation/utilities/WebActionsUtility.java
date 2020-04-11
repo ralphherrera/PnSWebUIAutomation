@@ -19,7 +19,7 @@ public class WebActionsUtility {
 
     private static final Logger log = LogManager.getLogger(WebActionsUtility.class);
     private static final int ZERO_TIMEOUT = 0;
-    private final static Duration EXPLICIT_WAIT_TIMEOUT = Duration.ofSeconds(FileMgmtUtil.getNumberValue(CommonConstants.EXPLICIT_TIMEOUT));
+    private final static Duration EXPLICIT_WAIT_TIMEOUT = Duration.ofSeconds(FileMgmtUtility.getNumberValue(CommonConstants.EXPLICIT_TIMEOUT));
 
     private WebDriver driver;
     private WebWaitsUtility webWaitsutil;
@@ -90,7 +90,7 @@ public class WebActionsUtility {
         } catch (Exception e) {
             log.error("Unable to click element! [{}] -- [{}]", strElement, e.getMessage());
         } finally {
-            driver.manage().timeouts().implicitlyWait(FileMgmtUtil.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(FileMgmtUtility.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
         }
         log.traceExit();
     }

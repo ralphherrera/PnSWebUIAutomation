@@ -4,14 +4,15 @@ import com.pnswebuiautomation.constants.CommonConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.List;
 import java.util.Properties;
 
-public class FileMgmtUtil {
+public class FileMgmtUtility {
 
-    private static final Logger log = LogManager.getLogger(FileMgmtUtil.class);
+    private static final Logger log = LogManager.getLogger(FileMgmtUtility.class);
+    private static final String CHAR_ENCODING_UTF8 = "UTF-8";
+
 
     private static Properties readPropertyValue() {
         Properties properties = new Properties();
@@ -43,5 +44,27 @@ public class FileMgmtUtil {
             log.error("Invalid number format for key {} in config.properties", key);
         }
         return num;
+    }
+
+    /**
+     *
+     * @param fileName
+     * @param fileContents
+     * @throws IOException
+     */
+    public static void writeTestStepDurationToCSV(String fileName, List<String> fileContents) {
+
+        File file = new File(fileName);
+        file.getParentFile().mkdirs();
+        try (PrintWriter writer = new PrintWriter(file)){
+            writer.write(CommonUtility.createCsvHeader());
+            writer.write("\n");
+            for (String s : fileContents) {
+                writer.write(s);
+                writer.write("\n");
+            }
+        } catch (IOException ioe) {
+            log.error("Error writing csv file. Please see stacktrace [{}]", ioe.getMessage());
+        }
     }
 }

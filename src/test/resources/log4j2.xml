@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration status="DEBUG">
     <Properties>
         <Property name="logPath">logs</Property>
         <Property name="rollingFileName">PnSWebUIAutomation</Property>
@@ -12,28 +12,28 @@
     </CustomLevels>
 
     <Appenders>
+
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout
                     pattern="[%highlight{%-5level}] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}.%M() - %msg%n%throwable{short.lineNumber}"/>
-            <!--pattern="[%highlight{%-5level}] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}.%M() - %msg%n%throwable{short.lineNumber}"-->
         </Console>
+
         <RollingFile name="rollingFile" fileName="${logPath}/${rollingFileName}.log"
                      filePattern="${logPath}/${rollingFileName}_%d{yyyy-MM-dd}.log">
             <PatternLayout
                     pattern="[%highlight{%-5level}] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}.%M() - %msg%n%throwable{short.lineNumber}"/>
             <Policies>
-                <!-- Causes a rollover if the log file is older than the current JVM's start time -->
-                <OnStartupTriggeringPolicy/>
                 <!-- Causes a rollover once the date/time pattern no longer applies to the active file -->
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="25 MB"/>
             </Policies>
         </RollingFile>
     </Appenders>
 
     <Loggers>
-        <Root level="NOTICE" additivity="true">
-            <AppenderRef ref="console" level="VERBOSE"/>
-            <AppenderRef ref="rollingFile" level="DIAG"/>
+        <Root level="DEBUG" additivity="false">
+            <AppenderRef ref="console" level="DEBUG"/>
+            <AppenderRef ref="rollingFile" level="DEBUG"/>
         </Root>
     </Loggers>
 </Configuration>

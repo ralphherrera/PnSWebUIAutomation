@@ -37,20 +37,20 @@ public class BrowserManager {
     }
 
     private ChromeDriver setUpChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", FileMgmtUtil.getPropertyValue("local.chrome.driver.path"));
+        System.setProperty("webdriver.chrome.driver", FileMgmtUtility.getPropertyValue("local.chrome.driver.path"));
         ChromeOptions chromeOptions = new ChromeOptions();
 //        chromeOptions.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080","--ignore-certificate-errors");
-        chromeOptions.addArguments("--disable-gpu", "--window-size=1920,1080","--ignore-certificate-errors");
+//        chromeOptions.addArguments("--ignore-certificate-errors");
         return new ChromeDriver(chromeOptions);
     }
 
     private FirefoxDriver setUpGeckoDriver() {
-        System.setProperty("webdriver.gecko.driver", FileMgmtUtil.getPropertyValue("local.firefox.driver.path"));
+        System.setProperty("webdriver.gecko.driver", FileMgmtUtility.getPropertyValue("local.firefox.driver.path"));
         return new FirefoxDriver();
     }
 
     private InternetExplorerDriver setUpIEDriver() {
-        System.setProperty("webdriver.ie.driver", FileMgmtUtil.getPropertyValue("local.ie.driver.path"));
+        System.setProperty("webdriver.ie.driver", FileMgmtUtility.getPropertyValue("local.ie.driver.path"));
         return new InternetExplorerDriver();
     }
 

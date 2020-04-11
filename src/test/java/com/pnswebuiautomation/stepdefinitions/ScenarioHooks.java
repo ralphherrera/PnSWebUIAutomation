@@ -2,7 +2,7 @@ package com.pnswebuiautomation.stepdefinitions;
 
 import com.pnswebuiautomation.constants.CommonConstants;
 import com.pnswebuiautomation.utilities.BrowserManager;
-import com.pnswebuiautomation.utilities.FileMgmtUtil;
+import com.pnswebuiautomation.utilities.FileMgmtUtility;
 import com.pnswebuiautomation.utilities.WebActionsUtility;
 import com.pnswebuiautomation.utilities.WebWaitsUtility;
 import io.cucumber.java8.En;
@@ -10,9 +10,12 @@ import io.cucumber.java8.Scenario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ScenarioHooks implements En {
@@ -22,7 +25,9 @@ public class ScenarioHooks implements En {
 
     private WebActionsUtility webActionsUtil;
     private WebWaitsUtility webWaitsUtil;
-    private Scenario scenario;
+    public static Scenario scenario;
+
+    public static List<String> stepDurationList = new ArrayList<>();
 
     public ScenarioHooks() {
 
@@ -31,10 +36,10 @@ public class ScenarioHooks implements En {
                 log.info("Starting scenario: [{}]", scenario.getName());
                 this.scenario = scenario;
                 BrowserManager browserManager = new BrowserManager();
-                WebDriver driver = browserManager.getBrowserWebDriver(FileMgmtUtil.getPropertyValue(CFG_BROWSER));
+                WebDriver driver = browserManager.getBrowserWebDriver(FileMgmtUtility.getPropertyValue(CFG_BROWSER));
                 driver.manage().deleteAllCookies();
-                driver.manage().window().maximize();
-                driver.manage().timeouts().implicitlyWait(FileMgmtUtil.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
+                driver.manage().window().setSize(new Dimension(1920, 1080));
+                driver.manage().timeouts().implicitlyWait(FileMgmtUtility.getNumberValue(CommonConstants.DEFAULT_TIMEOUT), TimeUnit.SECONDS);
 
                 webWaitsUtil = new WebWaitsUtility(driver);
                 webActionsUtil = new WebActionsUtility(driver, webWaitsUtil);
@@ -59,6 +64,9 @@ public class ScenarioHooks implements En {
                     webWaitsUtil = null;
                     log.info("Successfully closed WebDriver Instance");
                 }
+
+
+
             } catch (WebDriverException wde) {
                 log.error("Failed to close instance of Web Driver");
             } catch (Exception e) {
@@ -78,5 +86,13 @@ public class ScenarioHooks implements En {
 
     public Scenario getScenario() {
         return scenario;
+    }
+
+    public List<String> getStepDurationList() {
+        return stepDurationList;
+    }
+
+    public void setStepDurationList(List<String> stepDurationList) {
+        this.stepDurationList = stepDurationList;
     }
 }
