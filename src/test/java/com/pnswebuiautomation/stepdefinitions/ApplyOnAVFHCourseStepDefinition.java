@@ -1,7 +1,5 @@
 package com.pnswebuiautomation.stepdefinitions;
 
-import com.pnswebuiautomation.utilities.CommonUtility;
-import com.pnswebuiautomation.utilities.FileMgmtUtility;
 import io.cucumber.java8.En;
 
 public class ApplyOnAVFHCourseStepDefinition implements En {
@@ -16,7 +14,11 @@ public class ApplyOnAVFHCourseStepDefinition implements En {
 
         });
 
-        And("^I enter my personal information in about you page (\\d+) of (\\d+)$", (Integer arg0, Integer arg1) -> {
+        And("^I enter my personal information in about you page one of three$", () -> {
+
+        });
+
+        And("^I enter my personal information in about you page two of three$", () -> {
 
         });
 
@@ -25,6 +27,10 @@ public class ApplyOnAVFHCourseStepDefinition implements En {
         });
 
         And("^I check and confirm the details I entered previously$", () -> {
+
+        });
+
+        And("^I enter my personal information in about you page three of three$", () -> {
 
         });
 
@@ -39,5 +45,7 @@ public class ApplyOnAVFHCourseStepDefinition implements En {
         Then("^I should see the confirmation for my application for the course$", () -> {
 
         });
+
+
     }
 }
