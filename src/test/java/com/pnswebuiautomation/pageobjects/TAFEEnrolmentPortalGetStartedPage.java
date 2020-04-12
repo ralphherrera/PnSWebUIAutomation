@@ -61,4 +61,13 @@ public class TAFEEnrolmentPortalGetStartedPage extends BasePage {
         }
         return log.traceExit(elementMap.get(key));
     }
+
+    /**
+     * Opens the browser and navigates to the specified URL
+     * @param url url site to be tested
+     */
+    public void openTAFEEnrolmentPortalSite(String url) {
+        log.traceEntry("Opening url: [{}]", url);
+        webActionsUtil.navigateToPage(url);
+    }
 }

@@ -86,10 +86,10 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
     private List<WebElement> rdolst_SpeakOtherLanguagesAtHomeList;
 
     @FindBy(id = "SpeakOtherLanguages_Yes")
-    private WebElement rdo_RSpeakOtherLanguagesYes;
+    private WebElement rdo_SpeakOtherLanguagesYes;
 
     @FindBy(id = "SpeakOtherLanguages_No")
-    private WebElement rdo_RSpeakOtherLanguagesNo;
+    private WebElement rdo_SpeakOtherLanguagesNo;
 
     @FindBy(css = "select[name='DisabilityStatus'] option")
     private List<WebElement> ddl_DisabilityStatusList;
@@ -113,6 +113,14 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
         elementMap.put("EmailAddressTxtField", txt_EmailAddress);
         elementMap.put("ConfirmEmailAddressTxtField", txt_ConfirmEmailAddress);
         elementMap.put("ContinuePage2of3 button", btn_ContinuePage2of3);
+        elementMap.put("StreetResidentialAddressLine", txt_StreetResidentialAddressLine);
+        elementMap.put("ResidentialAddressPostCode", txt_ResidentialAddressPostCode);
+        elementMap.put("ValidateAddressPostalCode", btn_ValidateAddressPostalCode);
+        elementMap.put("AddressSearchModal", modal_AddressSearchModal);
+        elementMap.put("SpeakOtherLanguagesYes", rdo_SpeakOtherLanguagesYes);
+        elementMap.put("SpeakOtherLanguagesNo", rdo_SpeakOtherLanguagesNo);
+        elementMap.put("ContinuePage3of3 button", btn_ContinuePage3of3);
+
 
         if (!elementMap.containsKey(key)) {
             log.warn("No Page Element found with key [{}]", key);
@@ -127,11 +135,14 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
         Map<String, List<WebElement>> elementMap = new HashMap<>();
 
         elementMap.put("ResideInAustraliaList", rdolst_ResideInAustraliaList);
-        elementMap.put("AreYouAUSResidencyList", rdolst_AreYouAUSResidencyList);
+        elementMap.put("AreYouAUSResidentList", rdolst_AreYouAUSResidencyList);
         elementMap.put("IndigenousStatusList", ddl_IndigenousStatusList);
         elementMap.put("ApprenticeshipList", ddl_ApprenticeshipList);
         elementMap.put("PersonTitleList", ddl_PersonTitleList);
         elementMap.put("GenderList", txt_GenderList);
+        elementMap.put("AddressSearchResultList", ullst_AddressSearchResultList);
+        elementMap.put("SpeakOtherLanguagesAtHomeList", rdolst_SpeakOtherLanguagesAtHomeList);
+        elementMap.put("DisabilityStatusList", ddl_DisabilityStatusList);
 
         if (!elementMap.containsKey(key)) {
             log.warn("No Page Element found with key [{}]", key);

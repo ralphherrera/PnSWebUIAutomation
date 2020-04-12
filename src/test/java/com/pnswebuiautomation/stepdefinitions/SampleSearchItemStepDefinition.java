@@ -9,8 +9,6 @@ import io.cucumber.java8.En;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SampleSearchItemStepDefinition implements En {
 
@@ -23,7 +21,7 @@ public class SampleSearchItemStepDefinition implements En {
                                           ItemDetailsModalPage itemDetailsModalPage) {
         Given("^I access my favorite shopping website$", () -> {
             String stepName = "I access my favorite shopping website";
-            homePage.setDriver(hooks.getWebWebsUtil(), hooks.getWebActionsUtil());
+            homePage.setDriver(hooks.getWebWaitsUtil(), hooks.getWebActionsUtil());
 
             stepStartTime = CommonUtility.getCurrentTimeStamp();
             homePage.openPage(FileMgmtUtility.getPropertyValue("website.url"));
@@ -52,7 +50,7 @@ public class SampleSearchItemStepDefinition implements En {
         });
 
         When("^I click the quick view button$", () -> {
-            searchResultsPage.setDriver(hooks.getWebWebsUtil(), hooks.getWebActionsUtil());
+            searchResultsPage.setDriver(hooks.getWebWaitsUtil(), hooks.getWebActionsUtil());
 
             String stepName = "I click the quick view button";
             stepStartTime = CommonUtility.getCurrentTimeStamp();
@@ -63,7 +61,7 @@ public class SampleSearchItemStepDefinition implements En {
         });
 
         Then("^I should see the item details and item description '(.*)'$", (String itemDescription) -> {
-            itemDetailsModalPage.setDriver(hooks.getWebWebsUtil(), hooks.getWebActionsUtil());
+            itemDetailsModalPage.setDriver(hooks.getWebWaitsUtil(), hooks.getWebActionsUtil());
 
             String stepName = "I should see the item details and item description";
             stepStartTime = CommonUtility.getCurrentTimeStamp();

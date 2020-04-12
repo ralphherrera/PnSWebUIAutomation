@@ -6,8 +6,6 @@ Feature: Apply on VFH Course
   I should be able to apply on a VFH Course via Enrolment Portal\
   So that I can keep improving myself
 
-
-
   @ApplyLearnerOnVFHCourse
   Scenario: Apply Learner on a VFH Course via Enrolment Portal
     Given I navigate to the TAFE Enrolment Site

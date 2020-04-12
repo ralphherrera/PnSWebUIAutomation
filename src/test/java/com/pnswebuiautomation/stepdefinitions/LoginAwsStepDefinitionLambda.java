@@ -16,7 +16,7 @@ public class LoginAwsStepDefinitionLambda implements En {
         Given("^I access the AWS EC2 site$", () -> {
             // Passes the the instance of WebWaitsUtil and WebActionsUtil instantiated
             // in the Scenariohooks into the PageObject class
-            loginPage.setDriver(hooks.getWebWebsUtil(), hooks.getWebActionsUtil());
+            loginPage.setDriver(hooks.getWebWaitsUtil(), hooks.getWebActionsUtil());
 
             log.info(hooks.getScenario().getId());
             loginPage.openPage(FileMgmtUtility.getPropertyValue("website.url"));

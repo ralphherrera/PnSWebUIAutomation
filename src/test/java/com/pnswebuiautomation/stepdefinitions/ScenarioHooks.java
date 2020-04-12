@@ -80,7 +80,7 @@ public class ScenarioHooks implements En {
         return webActionsUtil;
     }
 
-    public WebWaitsUtility getWebWebsUtil() {
+    public WebWaitsUtility getWebWaitsUtil() {
         return webWaitsUtil;
     }
 
