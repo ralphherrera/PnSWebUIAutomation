@@ -40,7 +40,7 @@ public class BrowserManager {
         System.setProperty("webdriver.chrome.driver", FileMgmtUtility.getPropertyValue("local.chrome.driver.path"));
         ChromeOptions chromeOptions = new ChromeOptions();
 //        chromeOptions.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080","--ignore-certificate-errors");
-//        chromeOptions.addArguments("--ignore-certificate-errors");
+        chromeOptions.addArguments("--ignore-certificate-errors");
         return new ChromeDriver(chromeOptions);
     }
 

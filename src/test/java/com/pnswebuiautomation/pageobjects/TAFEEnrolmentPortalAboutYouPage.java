@@ -16,10 +16,11 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
 
     // Page Elements
     // Citizenship / Residency
-    @FindBy(css = "input[name='ResideInAustralia']")
+//    @FindBy(css = "input[name='ResideInAustralia']")
+    @FindBy(css = "div[id='ResideInAustralia_container'] label[class='radio']")
     private List<WebElement> rdolst_ResideInAustraliaList;
 
-    @FindBy(css = "p[class='navigation-forward'] a")
+    @FindBy(id = "ResideInAustralia_Yes")
     private WebElement rdo_ResideInAustraliaListYes;
 
     @FindBy(id = "ResideInAustralia_No")
@@ -28,7 +29,8 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
     @FindBy(id = "UniqueStudentId")
     private WebElement txt_UniqueStudentId;
 
-    @FindBy(css = "input[name='ResidentialStatus']")
+//    @FindBy(css = "input[name='ResidentialStatus']")
+    @FindBy(css = "span[id='spanResidentialStatus'] + div > div > label[class='radio']")
     private List<WebElement> rdolst_AreYouAUSResidencyList;
 
     @FindBy(css = "select[name='IndigenousStatus'] option")
@@ -38,7 +40,7 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
     @FindBy(css = "select[name='Apprenticeship'] option")
     private List<WebElement> ddl_ApprenticeshipList;
 
-    @FindBy(id = "SubmitButton")
+    @FindBy(css = "p[class='navigation-forward'] input[id='SubmitButton']")
     private WebElement btn_ContinuePage1of3;
 
     // About You Page 2 of 3
@@ -63,7 +65,7 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
     @FindBy(id = "ConfirmEmailAddress")
     private WebElement txt_ConfirmEmailAddress;
 
-    @FindBy(id = "SubmitButton")
+    @FindBy(css = "p[class='navigation-forward'] input[id='SubmitButton']")
     private WebElement btn_ContinuePage2of3;
 
     // About You Page 3 of 3
@@ -82,7 +84,8 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
     @FindBy(css = "ul[id='addressResults'] li a")
     private List<WebElement> ullst_AddressSearchResultList;
 
-    @FindBy(css = "input[name='SpeakOtherLanguages']")
+//    @FindBy(css = "input[name='SpeakOtherLanguages']")
+    @FindBy(css = "span[id='spanSpeakOtherLanguages'] + div > div > label[class='radio']")
     private List<WebElement> rdolst_SpeakOtherLanguagesAtHomeList;
 
     @FindBy(id = "SpeakOtherLanguages_Yes")
@@ -94,7 +97,7 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
     @FindBy(css = "select[name='DisabilityStatus'] option")
     private List<WebElement> ddl_DisabilityStatusList;
 
-    @FindBy(id = "SubmitButton")
+    @FindBy(css = "p[class='navigation-forward'] input[id='SubmitButton']")
     private WebElement btn_ContinuePage3of3;
 
     // Page Methods

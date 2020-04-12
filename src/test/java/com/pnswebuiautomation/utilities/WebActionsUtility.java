@@ -77,6 +77,7 @@ public class WebActionsUtility {
         try {
             if (webWaitsutil.isElementPresent(element) && element.isEnabled()) {
                 log.info("Clicking element: [{}]", strElement);
+                scrollIntoView(element);
                 highlightElement(element);
                 element.click();
             } else {
@@ -84,6 +85,7 @@ public class WebActionsUtility {
                 WebDriverWait driverWait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
                 driverWait.until(ExpectedConditions.elementToBeClickable(element));
                 log.info("Clicking element: [{}]", strElement);
+                scrollIntoView(element);
                 highlightElement(element);
                 element.click();
             }
@@ -125,6 +127,7 @@ public class WebActionsUtility {
     public void jsClickElement(WebElement element) {
         log.traceEntry("Clicking element [{}]", element.toString());
         JavascriptExecutor executor = (JavascriptExecutor) driver;
+        scrollIntoView(element);
         highlightElement(element);
         executor.executeScript("arguments[0].click();", element);
         log.traceExit();

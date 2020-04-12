@@ -15,10 +15,11 @@ public class TAFEEnrolmentPortalGetStartedPage extends BasePage {
     private static final Logger log = LogManager.getLogger(TAFEEnrolmentPortalGetStartedPage.class);
 
     // Page Elements
-    @FindBy(css = "div[class='controls'] select")
+    @FindBy(css = "select[id='Source'] option")
     private List<WebElement> ddl_HowCourseSourceList;
 
-    @FindBy(css = "input[name='HasStudiedPreviously']")
+//    @FindBy(css = "input[name='HasStudiedPreviously']")
+    @FindBy(css = "label[class='radio']")
     private List<WebElement> rdolst_StudiedPreviouslyList;
 
     @FindBy(id = "HasStudiedPreviously_Yes")

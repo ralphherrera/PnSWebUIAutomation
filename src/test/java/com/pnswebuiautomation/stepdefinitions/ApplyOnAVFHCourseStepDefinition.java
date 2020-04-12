@@ -58,7 +58,7 @@ public class ApplyOnAVFHCourseStepDefinition implements En {
             aboutYouCheckAndConfirmPage.setDriver(hooks.getWebWaitsUtil(), hooks.getWebActionsUtil());
 
             aboutYouCheckAndConfirmPage.clickElement("ConfirmDetails");
-            aboutYouCheckAndConfirmPage.clickElement("Continue button");
+            aboutYouCheckAndConfirmPage.clickElement("Continue Button");
         });
 
         And("^I enter my personal information in about you page three of three$", () -> {
