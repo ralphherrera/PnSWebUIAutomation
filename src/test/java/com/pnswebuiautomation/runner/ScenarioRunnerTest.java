@@ -35,7 +35,7 @@ public class ScenarioRunnerTest {
         private static final String CSV_FILE_EXT = ".csv";
         private static final String PROJECT_DIR_PATH = System.getProperty("user.dir");
 
-        @AfterClass
+
         public static void afterTest() {
                 StringBuilder fileNameToPath = new StringBuilder();
                 fileNameToPath.append(PROJECT_DIR_PATH);

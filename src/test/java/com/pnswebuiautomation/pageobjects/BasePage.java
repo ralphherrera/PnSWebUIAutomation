@@ -47,6 +47,10 @@ abstract class BasePage {
         webActionsUtil.clickElementFromList(returnPageElementList(elements), key);
     }
 
+    public void selectRandomElementFromList(String elements) {
+        webActionsUtil.clickRandomElementFromList(returnPageElementList(elements));
+    }
+
     public void inputTextToField(String element, String input) {
         webActionsUtil.enterTextToField(returnPageElement(element), input);
     }

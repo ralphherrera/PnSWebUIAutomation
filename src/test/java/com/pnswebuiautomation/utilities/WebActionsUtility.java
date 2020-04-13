@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class WebActionsUtility {
@@ -108,11 +109,26 @@ public class WebActionsUtility {
             if (webWaitsutil.areElementsPresent(elements)) {
                 for (WebElement element : elements) {
                     if (element.getText().equalsIgnoreCase(key.toLowerCase())) {
-                        highlightElement(element);
                         clickElement(key, element);
                         break;
                     }
                 }
+            }
+        } catch (Exception e) {
+            log.error("Unable to click element! [{}]", e.getMessage());
+        }
+        log.traceExit();
+    }
+
+    /**
+     *
+     * @param elements
+     */
+    public void clickRandomElementFromList(List<WebElement> elements) {
+        log.traceEntry("Clicking [{}] from list");
+        try {
+            if (webWaitsutil.areElementsPresent(elements)) {
+                clickElement("", elements.get(new Random().nextInt(elements.size())));
             }
         } catch (Exception e) {
             log.error("Unable to click element! [{}]", e.getMessage());

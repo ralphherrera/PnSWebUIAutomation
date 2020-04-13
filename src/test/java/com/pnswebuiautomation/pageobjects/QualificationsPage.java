@@ -27,7 +27,7 @@ public class QualificationsPage extends BasePage {
     @FindBy(css = "select[id='ReasonForTaking'] option")
     private List<WebElement> ddl_ReasonForTakingList;
 
-    @FindBy(id = "SubmitButton")
+    @FindBy(css = "p[class='navigation-forward'] input[title='Continue']")
     private WebElement btn_ContinueButton;
 
     // Page Methods

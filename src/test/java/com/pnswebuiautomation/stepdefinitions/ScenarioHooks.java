@@ -73,7 +73,6 @@ public class ScenarioHooks implements En {
                 log.error("No Web Driver instance to close");
             }
         });
-
     }
 
     public WebActionsUtility getWebActionsUtil() {

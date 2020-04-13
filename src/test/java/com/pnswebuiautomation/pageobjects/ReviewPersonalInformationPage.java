@@ -18,7 +18,7 @@ public class ReviewPersonalInformationPage extends BasePage {
     @FindBy(id = "ConfirmDetails")
     private WebElement chk_ConfirmDetails;
 
-    @FindBy(css = "p[class='navigation-forward'] input[title='SubmitButton']")
+    @FindBy(css = "p[class='navigation-forward'] input[value='Continue']")
     private WebElement btn_Submit;
 
     // Page Methods

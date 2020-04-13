@@ -157,8 +157,6 @@ public class WebWaitsUtility {
             List<WebElement> targets = driverWait.ignoring(StaleElementReferenceException.class)
                     .until(ExpectedConditions.visibilityOfAllElements(elements));
 
-
-            log.debug("Element list size [{}]", elements.size());
             if (!targets.isEmpty()) {
                 areElementsDisplayed = true;
             }

@@ -97,7 +97,7 @@ public class TAFEEnrolmentPortalAboutYouPage extends BasePage {
     @FindBy(css = "select[name='DisabilityStatus'] option")
     private List<WebElement> ddl_DisabilityStatusList;
 
-    @FindBy(css = "p[class='navigation-forward'] input[id='SubmitButton']")
+    @FindBy(css = "p[class='navigation-forward'] input[value='Continue']")
     private WebElement btn_ContinuePage3of3;
 
     // Page Methods

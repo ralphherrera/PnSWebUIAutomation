@@ -66,8 +66,7 @@ public class ApplyOnAVFHCourseStepDefinition implements En {
             aboutYouPage.inputTextToField("ResidentialAddressPostCode", "2000");
             aboutYouPage.clickElement("ValidateAddressPostalCode");
             aboutYouPage.isElementDisplayed("AddressSearchModal");
-            aboutYouPage.clickElementFromList("AddressSearchResultList",
-                    "Lower Ground Floor  323-339 Castlereagh Street, HAYMARKET  NSW, 2000");
+            aboutYouPage.selectRandomElementFromList("AddressSearchResultList");
             aboutYouPage.clickElementFromList("SpeakOtherLanguagesAtHomeList", "No");
             aboutYouPage.clickElementFromList("DisabilityStatusList", "No, I don't have a disability");
             aboutYouPage.clickElement("ContinuePage3of3 button");
