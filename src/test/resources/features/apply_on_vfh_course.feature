@@ -1,13 +1,13 @@
 # new feature
 # Tags: optional
 @web
-Feature: Apply on VFH Course
+Feature: Apply Learner on VFH Course
   As a learner on TAFE
   I should be able to apply on a VFH Course via Enrolment Portal\
   So that I can keep improving myself
 
-  @ApplyLearnerOnVFHCourse
-  Scenario: Apply Learner on a VFH Course via Enrolment Portal
+  @planPosTester
+  Scenario Outline: Apply Learner on a VFH Course via Enrolment Portal
     Given I navigate to the TAFE Enrolment Site
     And I fill out the details in the Get Started Page questions
     And I enter my personal information in about you page one of three
@@ -18,3 +18,7 @@ Feature: Apply on VFH Course
     And I fill out the Qualifications Page questions
     When I confirm all the details I entered and proceed
     Then I should see the confirmation for my application for the course
+
+    Examples:
+    |Run|
+    |1  |

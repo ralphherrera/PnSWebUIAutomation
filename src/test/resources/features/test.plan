@@ -1,0 +1,14 @@
+@planPosTest
+Plan: Apply Learner on VFH Course
+
+@simperiodtest
+Simulation Period: simulation 1
+Group @planPosTester
+	#number of threads
+    Runners: 10
+    #total number of threads to run.
+    Count: 10
+    #run time
+    Time: 00:00:10
+    RampUp: 00:00:00
+    RampDown: 00:00:00
